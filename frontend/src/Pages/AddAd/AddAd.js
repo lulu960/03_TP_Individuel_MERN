@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./AddAd.css";
 
 const AddAd = () => {
@@ -8,6 +9,8 @@ const AddAd = () => {
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [photo, setPhoto] = useState("");
+
+  const navigate = useNavigate(); // Hook pour rediriger l'utilisateur
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,8 +26,8 @@ const AddAd = () => {
         }
       );
       console.log(response.data);
-      window.location.reload();
-      navigator.navigate("/Home");
+      const createdAdId = response.data._id; // Récupère l'ID de l'annonce créée
+      navigate(`/ad-details/${createdAdId}`); // Redirige vers la page de détails
     } catch (err) {
       console.error(err);
     }

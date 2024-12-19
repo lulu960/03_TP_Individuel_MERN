@@ -27,7 +27,7 @@ const AdDetails = () => {
     <div className="ad-details-container">
       <h2>{ad.title}</h2>
       <img
-        src={ad.photo || "https://via.placeholder.com/150"}
+        src={ad.photo || "https://placehold.co/600x400"}
         alt={ad.title}
         className="ad-photo"
       />
