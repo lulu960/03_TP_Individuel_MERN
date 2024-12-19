@@ -18,7 +18,7 @@ const Register = () => {
         password,
       });
       alert(response.data.message);
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       alert("Error registering: " + error.response?.data?.message || error.message);
     }

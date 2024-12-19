@@ -66,6 +66,19 @@ const Home = () => {
     setFilteredAds(updatedAds);
   };
 
+  const handleDelete = async (id) => {
+    const token = localStorage.getItem("token");
+    try {
+      await axios.delete(`http://localhost:5000/api/ads/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      alert("Annonce supprimée avec succès !");
+      fetchAds(); // Recharge les annonces après suppression
+    } catch (err) {
+      console.error("Erreur lors de la suppression :", err);
+    }
+  };
+
   return (
     <div className="home-container">
       <h2>Liste des Annonces</h2>
@@ -108,6 +121,20 @@ const Home = () => {
             <p className="category">{ad.category}</p>
             <p className="price">{ad.price} €</p>
             <p>{ad.description}</p>
+            <div className="buttons-container">
+              <button
+                onClick={() => (window.location.href = `/edit-ad/${ad._id}`)}
+                className="edit-button"
+              >
+                Modifier
+              </button>
+              <button
+                onClick={() => handleDelete(ad._id)}
+                className="delete-button"
+              >
+                Supprimer
+              </button>
+            </div>
             <button
               onClick={() => (window.location.href = `/ad-details/${ad._id}`)}
               className="view-details-button"
