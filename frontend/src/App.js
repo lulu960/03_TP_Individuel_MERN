@@ -8,6 +8,7 @@ import AddAd from "./Pages/AddAd/AddAd";
 import EditAd from "./Pages/EditAd/EditAd";
 import NavBar from "./Components/NavBar/NavBar";
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
+import AdDetails from "./Pages/AdPage/Adpage";
 
 function App() {
   return (
@@ -52,6 +53,15 @@ function App() {
               </ProtectedRoute>
             }
           />
+           <Route 
+           path="/ad-details/:id" 
+           element={
+           <ProtectedRoute>
+             <AdDetails />
+           </ProtectedRoute>
+           } 
+           />
+
         </Routes>
       </div>
     </Router>

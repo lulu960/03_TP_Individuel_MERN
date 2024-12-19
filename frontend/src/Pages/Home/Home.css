@@ -87,3 +87,25 @@
     background-color: #0056b3;
   }
   
+  .view-details-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .view-details-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  .view-details-button:active {
+    background-color: #003f8a;
+    transform: translateY(0);
+  }
+  

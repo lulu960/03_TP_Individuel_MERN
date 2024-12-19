@@ -61,6 +61,12 @@ const Home = () => {
                 Supprimer
               </button>
               <button
+                onClick={() => (window.location.href = `/ad-details/${ad._id}`)}
+                className="view-details-button"
+              >
+                Voir l'annonce
+              </button>
+              <button
                 className="edit-button"
                 onClick={() => updateAd(ad._id)}
               >
