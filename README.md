@@ -22,7 +22,7 @@ Avant de commencer, assurez-vous d'avoir installé les outils suivants :
 
 ```bash
 git clone https://github.com/lulu960/03_TP_Individuel_MERN.git
-cd 03_TP_Individuel_MERN.git
+cd 03_TP_Individuel_MERN
 npm install
 node start.js
 ```
