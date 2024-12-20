@@ -29,3 +29,16 @@
     font-weight: bold;
   }
   
+  .author-link {
+    color: #007bff; /* Couleur bleue pour indiquer un lien */
+    cursor: pointer; /* Curseur en mode pointeur */
+    text-decoration: underline; /* Souligne le texte pour indiquer un lien */
+    font-weight: bold; /* Met le texte en gras */
+  }
+  
+  .author-link:hover {
+    color: #0056b3; /* Couleur légèrement plus sombre au survol */
+    text-decoration: none; /* Retire le soulignement au survol */
+    transition: color 0.3s ease; /* Animation fluide pour le changement de couleur */
+  }
+  

@@ -64,6 +64,9 @@ const AdDetails = () => {
           "Utilisateur inconnu"
         )}
       </p>
+      <p>
+        <strong>Email de contact :</strong> {author ? author.email : "Email inconnu"}
+      </p>
     </div>
   );
 };
