@@ -26,14 +26,26 @@ const MyProducts = () => {
   const handleDelete = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/ads/${id}`, {
+      if (!token) {
+        alert("Vous devez être connecté pour effectuer cette action.");
+        return;
+      }
+  
+      const response = await axios.delete(`http://localhost:5000/api/ads/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      setAds(ads.filter((ad) => ad._id !== id)); // Mettre à jour l'état après suppression
+  
+      if (response.status === 200) {
+        // Mettre à jour l'état après suppression
+        setAds(ads.filter((ad) => ad._id !== id));
+        alert("Annonce supprimée avec succès !");
+      }
     } catch (err) {
       console.error("Erreur lors de la suppression de l'annonce :", err);
+      alert("Erreur lors de la suppression de l'annonce. Vérifiez vos droits ou réessayez plus tard.");
     }
   };
+  
 
   return (
     <div className="my-products-container">
