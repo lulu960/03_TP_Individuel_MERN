@@ -28,6 +28,9 @@ const NavBar = () => {
         <li>
           <Link to="/profile">Modifier le profil</Link>
         </li>
+        <li>
+          <Link to="/my-products">Mes annonces </Link>
+        </li>
       </ul>
       <button onClick={handleLogout} className="logout-button">
         Déconnexion

@@ -9,6 +9,8 @@ import EditAd from "./Pages/EditAd/EditAd";
 import NavBar from "./Components/NavBar/NavBar";
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 import AdDetails from "./Pages/AdPage/Adpage";
+import MyProducts from "./Pages/MyProducts/MyProducts";
+import UserAds from "./Pages/UserAds/UserAds";
 
 function App() {
   return (
@@ -61,7 +63,22 @@ function App() {
            </ProtectedRoute>
            } 
            />
-
+          <Route 
+          path="/my-products" 
+          element={
+          <ProtectedRoute>
+            <MyProducts />
+          </ProtectedRoute>
+          }
+          />
+           <Route 
+           path="/user-ads/:id" 
+           element={
+            <ProtectedRoute>
+           <UserAds />
+           </ProtectedRoute>
+           }
+          />
         </Routes>
       </div>
     </Router>

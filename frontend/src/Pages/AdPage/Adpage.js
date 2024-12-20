@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./Adpage.css";
 
 const AdDetails = () => {
   const { id } = useParams(); // Récupère l'ID de l'annonce depuis l'URL
   const [ad, setAd] = useState(null); // État pour stocker les détails de l'annonce
   const [author, setAuthor] = useState(null); // État pour stocker les détails de l'auteur
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAd = async () => {
       try {
-        // Récupérer les détails de l'annonce
         const response = await axios.get(`http://localhost:5000/api/ads/${id}`);
         setAd(response.data);
 
-        // Si l'annonce contient un ID d'auteur, récupérer ses détails
         if (response.data.author) {
-          const token = localStorage.getItem("token"); // Récupérer le token JWT
+          const token = localStorage.getItem("token");
           const authorResponse = await axios.get(
-            `http://localhost:5000/api/users/${response.data.author}`, // URL mise à jour
-            { headers: { Authorization: `Bearer ${token}` } } // Ajout du header pour l'autorisation
+            `http://localhost:5000/api/users/${response.data.author}`,
+            { headers: { Authorization: `Bearer ${token}` } }
           );
-          setAuthor(authorResponse.data); // Stocker les données de l'auteur
+          setAuthor(authorResponse.data);
         }
       } catch (err) {
         console.error("Erreur lors de la récupération des détails de l'annonce :", err);
@@ -53,7 +52,17 @@ const AdDetails = () => {
         <strong>Description :</strong> {ad.description}
       </p>
       <p>
-        <strong>Posté par :</strong> {author?.username || "Utilisateur inconnu"}
+        <strong>Posté par :</strong>{" "}
+        {author ? (
+          <span
+            className="author-link"
+            onClick={() => navigate(`/user-ads/${author._id}`)}
+          >
+            {author.username}
+          </span>
+        ) : (
+          "Utilisateur inconnu"
+        )}
       </p>
     </div>
   );

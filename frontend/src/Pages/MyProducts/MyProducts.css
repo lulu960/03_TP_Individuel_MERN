@@ -1,0 +1,81 @@
+.my-products-container {
+    padding: 20px;
+  }
+  
+  .ads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .ad-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .ad-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .ad-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .ad-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  
+  .ad-card .category {
+    color: #555;
+    font-size: 14px;
+  }
+  
+  .ad-card .price {
+    color: #ff6f00;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .edit-button,
+  .delete-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .edit-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .edit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .delete-button {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .delete-button:hover {
+    background-color: #a71d2a;
+  }
+  

@@ -31,7 +31,7 @@ const EditAd = () => {
       } catch (err) {
         console.error("Erreur lors de la récupération de l'annonce :", err);
         alert("Erreur : Impossible de récupérer les données de l'annonce.");
-        navigate("/");
+        navigate("/home");
       }
     };
     fetchAd();
@@ -47,7 +47,7 @@ const EditAd = () => {
         { headers: { Authorization: `Bearer ${token}` } }
       );
       alert("Annonce modifiée avec succès !");
-      navigate("/"); // Redirige vers la page d'accueil
+      navigate("/home"); // Redirige vers la page d'accueil
     } catch (err) {
       console.error("Erreur lors de la mise à jour :", err);
       alert("Erreur lors de la modification de l'annonce.");
